@@ -1,0 +1,39 @@
+const JuejinHelper = require("juejin-helper");
+
+async function run() {
+  const juejin = new JuejinHelper();
+  await juejin.login("你的掘金Cookie");
+
+  const growth = juejin.growth();
+
+  // 签到
+  await growth.checkIn();
+
+  // 获取当前矿石数
+  // await growth.getCurrentPoint();
+
+  // 获取统计签到天数
+  // await growth.getCounts();
+
+  // 获取今日签到状态
+  // await growth.getTodayStatus();
+
+  // 获取抽奖配置
+  // await growth.getLotteryConfig();
+
+  // 抽奖
+  // await growth.drawLottery();
+
+  // 获取抽奖幸运用户
+  // await growth.getLotteriesLuckyUsers({ page_no = 1, page_size = 5 }); // => { lotteries: [{ lottery_history_id }, ...] }
+
+  // 获取我的幸运值
+  // await growth.getMyLucky();
+
+  // 沾喜气
+  // await growth.dipLucky(lottery_history_id); // => { has_dip, dip_value, total_value, dip_action }
+
+  await juejin.logout();
+}
+
+run();
